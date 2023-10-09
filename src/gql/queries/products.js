@@ -8,7 +8,14 @@ export const ALL_PRODUCTS = gql`
           id
           name
           pricing {
-            displayGrossPrices
+            priceRange {
+								start {
+									gross {
+										currency
+										amount
+									}
+								}
+							}
           }
           thumbnail {
             url
