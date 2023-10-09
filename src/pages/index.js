@@ -1,52 +1,28 @@
 import { gql } from "@apollo/client";
 import createApolloClient from "../../apollo-client";
+
 // 
 import useGetProducts from "@/hooks/useGetProducts";
+import ProductList from "@/components/ProductList";
 
-// export async function getStaticProps ()  {
-//   const client = createApolloClient();
-//   const { data } = await client.query({
-//     query: gql`
-//       query Products {
-//         products(channel: "uk", first: 40) {
-//           edges {
-//             node {
-//               id
-//               name
-//               pricing {
-//                 displayGrossPrices
-//               }
-//               thumbnail {
-//                 url
-//                 alt
-//               }
-//               category {
-//                 name
-//               }
-//             }
-//           }
-//         }
-//       }
-//     `,
-//   })
-//   return {
-//     props: {
-//       products: data.products,
-//     },
-//   };
+// import graphqlClient from "@/gql/graphql-client";
 
+
+// export const getServerSideProps = async () => {
+//   try {
+//     const { data } = await graphqlClient.query({ query:ALL_PRODUCTS })
+//     return { props: { data } }
+//   } catch (error) {
+//     return { props: { data: null } }
+//   }
 // }
 
-export default function Home({ products }) {
-  const { data, loading, error } =  useGetProducts();
+export default function Home() {
+  const [action, { data, loading, error }] =  useGetProducts();
+  const { products } = data || {};
+
   return (
-    <div>
-      {products?.edges?.map((product) => (
-        <div key={product.node.id}>
-              <p>{product.node.name}</p>
-        </div>
-      ))}
-    </div>
+    <ProductList products={products?.edges} />
   );
 }
 

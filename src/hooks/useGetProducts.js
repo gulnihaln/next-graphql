@@ -1,27 +1,15 @@
 import { useCallback } from "react";
 import { useQuery } from "@apollo/client";
-import { query } from "../gql/query";
+import { ALL_PRODUCTS } from "../gql/queries/products";
 
 const useGetProducts = (url) => {
-  // const [data, setData] = React.useState(null);
-  // const [loading, setLoading] = React.useState(false);
-  // const [error, setError] = React.useState(null);
-  // normalise data
-  const format = useCallback((data) => {
-    const products = data?.edges || null;
 
-    return { products, data };
-  }, []);
 
-  const { data, loading, error } = useQuery(query.ALL_PRODUCTS, {
+  const { data, loading, error } = useQuery(ALL_PRODUCTS, {
     variables: { channel: 'uk', first: 40 },
   });
 
   const action = async (body, actionOptions = {}) => {
-    // setLoading(true);
-    // setError(null);
-    // setData(null);
-
     return fetch(url)
       .then(async (res) => {
         if (res.status >= 200 && res.status < 300) {
@@ -44,10 +32,8 @@ const useGetProducts = (url) => {
       });
   };
 
-  return [action, { data, loading, error, ...format(data?.edges) }];
+  return [action, { data, loading, error }];
 };
 
 export default useGetProducts;
 
-// query yap
-// hook ta call yap query i
