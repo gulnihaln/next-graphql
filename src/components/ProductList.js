@@ -5,7 +5,7 @@ import ProductTile from "./ProductTile";
 const ProductList = ({ products = [], loading }) => {
   console.log("🚀 ~ products:", products)
   return (
-    <Container maxW="container.xl" px={0}  bg={'#F4F2F4'}>
+    <Container maxW="container.xl" px={0}  bg={'#F4F2F4'} top={4}>
       <SimpleGrid
         templateColumns={{
           base: "repeat(1, 1fr)",

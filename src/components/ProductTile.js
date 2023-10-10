@@ -18,6 +18,7 @@ const ProductTile = ({ product }) => {
         w="100%"
         h="300px"
         bg="white"
+        mt={4}
         p={6}
         flexDirection="column"
         alignItems="center"

@@ -2,6 +2,7 @@ import { gql } from "@apollo/client";
 import createApolloClient from "../../apollo-client";
 
 // 
+import Header from "@/components/header/Header";
 import useGetProducts from "@/hooks/useGetProducts";
 import ProductList from "@/components/ProductList";
 
@@ -22,7 +23,10 @@ export default function Home() {
   const { products } = data || {};
 
   return (
-    <ProductList products={products?.edges} />
+    <>
+      <Header />
+      <ProductList products={products?.edges} />
+    </>
   );
 }
 
