@@ -13,7 +13,7 @@ const ProductTile = ({ product }) => {
   // const hasImage = product.node.thumbnail.length;
 
   return (
-    <Link href={`/${product.node.id}`}>
+    <Link href={`/product/${product.node.slug}`}>
       <Flex
         w="100%"
         h="300px"

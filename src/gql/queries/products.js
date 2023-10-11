@@ -7,6 +7,7 @@ export const ALL_PRODUCTS = gql`
         node {
           id
           name
+          slug
           pricing {
             priceRange {
 								start {
