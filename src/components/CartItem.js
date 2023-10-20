@@ -31,3 +31,5 @@ const CartItem = ({ item, total, totalItems }) => {
 		</Container>
 	);
 }
+
+export default CartItem;

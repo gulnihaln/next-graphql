@@ -17,6 +17,7 @@ export default function AddToCartButton( { product, AddToCartHandle, count, setC
 	function amountToAdd (count, product){
 		return (count * product?.pricing?.priceRange?.start?.gross?.amount).toFixed(2);
 	}
+
 	return (
 		<>
 			<Box m={4}>
@@ -31,7 +32,7 @@ export default function AddToCartButton( { product, AddToCartHandle, count, setC
 						<FiPlus />
 					</Button>
 				</Box>
-				<Button className="add-cart-button" onClick={AddToCartHandle}>
+				<Button bg="#fff" border="1px solid gray" _hover={{ bg:"#000", color:"#fff"}} width="100%" onClick={AddToCartHandle}>
 					Add to Cart - £
 					{amountToAdd(count, product)}
 				</Button>

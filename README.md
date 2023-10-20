@@ -1,3 +1,27 @@
+# Hi !
+
+I wanted to apply my graphql experinces in this task. 
+Installed apollo-graphql to query data from the graphql environment "https://unicorn-staging.eu.saleor.cloud/graphql/".
+
+Created two hooks to get all products details and a single product details. 
+There are four main components which are products lists, a single product details, header and cart.
+
+Product tiles links to single product page.
+Category buttons are to navigate to selected category products.
+
+
+TO DO:
+- Search feature is not completed
+- Category page doesn't render correctly
+- Render the image that is clicked in single product page
+- Creating a CART_ITEMS query where I'll add products in the cart
+- Creating an AddToCartHandle function
+- Creating a CHECKOUT query to delete items in my cart
+- Add a success page after check out completed
+- Creating a REMOVE_CART_ITEMS to remove an item from cart
+- Creating a RemoveItem function
+
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started

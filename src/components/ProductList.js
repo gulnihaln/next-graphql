@@ -1,11 +1,24 @@
-import { Container, SimpleGrid } from "@chakra-ui/react";
+import { Container, SimpleGrid, Spinner } from "@chakra-ui/react";
 import React from "react";
 import ProductTile from "./ProductTile";
 
 const ProductList = ({ products = [], loading }) => {
-  console.log("🚀 ~ products:", products)
+
+  if (loading) {
+    return (
+      <Spinner
+        thickness="4px"
+        speed="0.65s"
+        emptyColor="gray.200"
+        color="blue.500"
+        size="xl"
+        m="0 auto"
+      />
+    );
+  }
+
   return (
-    <Container maxW="container.xl" px={0}  bg={'#F4F2F4'} top={4}>
+    <Container maxW="full" px={0}  bg={'#F4F2F4'} top={4}>
       <SimpleGrid
         templateColumns={{
           base: "repeat(1, 1fr)",
@@ -14,7 +27,6 @@ const ProductList = ({ products = [], loading }) => {
           lg: "repeat(4, 1fr)",
         }}
         gap={6}
-        // position="relative"
         spacing={6}
       >
         {products?.map((product) => (

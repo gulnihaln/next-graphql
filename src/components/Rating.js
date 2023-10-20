@@ -12,7 +12,7 @@ export default function Rating ( { product, isZero } ) {
             {isZero ? <StarOutlineOutlinedIcon /> : 
                 <Box display="flex" flexDirection="row" key={product.id} alignItems="center">
                     <StarOutlinedIcon />
-                   <Text>{`(${Math.round(product.rating)})`}</Text> 
+                   <Text>{`(${Math.round(product?.rating)})`}</Text> 
                 </Box>
         }
         </>

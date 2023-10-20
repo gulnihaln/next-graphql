@@ -1,10 +1,13 @@
 import { useQuery } from "@apollo/client";
 import { GET_PRODUCT } from "../gql/queries/product";
+import { useRouter } from "next/router";
 
 const useGetProducts = (url) => {
+  const router = useRouter();
+  const { slug } = router.query;
 
   const { data, loading, error } = useQuery(GET_PRODUCT, {
-    variables: { channel: 'uk', slug: "420pm-perfume" },
+    variables: { channel: 'uk', slug: slug  },
   });
 
   const action = async (body, actionOptions = {}) => {

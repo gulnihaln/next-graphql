@@ -1,16 +1,13 @@
-import Search from "../Search";
 import Navbar from "./Navbar";
 // import Categories from "../Main/Categories";
 import { Container } from "@chakra-ui/react"
 
-const Header = () => {
+const Header = ({ search, setSearch}) => {
 	return (
 		<>
-            <div width="100%">
-                <Navbar />
-                <Search />
-				{/* <Categories /> */}
-			</div>
+			<Container m={0} p={0} maxWidth="full">
+				<Navbar search={search} setSearch={setSearch} />
+			</Container>
 		</>
 	);
 }

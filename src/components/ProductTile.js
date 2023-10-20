@@ -3,17 +3,10 @@ import { Flex, Box, Text, Image, Button } from "@chakra-ui/react";
 import Link from "next/link";
 
 const ProductTile = ({ product }) => {
-  // console.log("🚀 ~ product:", product)
-  const isGBP = product.node.pricing.priceRange.start.gross.curreny !== "GBP";
-  console.log(
-    "🚀 ~ product.node.pricing.priceRange.start.gross.curreny:",
-    product.node.pricing.priceRange.start.gross.curreny
-  );
-  // console.log("🚀 ~ isGBP:", isGBP)
-  // const hasImage = product.node.thumbnail.length;
+  const isGBP = product?.node?.pricing?.priceRange?.start?.gross?.curreny !== "GBP";
 
   return (
-    <Link href={`/product/${product.node.slug}`}>
+    <Link href={`/product/${product?.node.slug}`}>
       <Flex
         w="100%"
         h="300px"
@@ -41,15 +34,13 @@ const ProductTile = ({ product }) => {
             width={100}
             height={100}
             alt={product?.node.name}
-            src={product.node.thumbnail?.url}
-            //   position="absolute"
-            //   bottom="200px"
+            src={product?.node.thumbnail?.url}
           />
           <Text fontSize="lg" mt={3}>
-            {product.node.name}
+            {product?.node.name}
           </Text>
           <Text mt={3}>
-            £{product.node.pricing.priceRange.start.gross.amount.toFixed(2)}
+            £{product?.node.pricing.priceRange.start.gross.amount.toFixed(2)}
           </Text>
         </Box>
         <Button colorScheme="grey" variant="outline" size="sm" maxW={14}>

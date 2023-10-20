@@ -1,8 +1,8 @@
 import { gql } from "@apollo/client";
 
 export const GET_PRODUCT = gql`
-  query product {
-    product(channel: "uk", slug: "big-blue-bath-bomb") {
+  query product($channel: String, $slug: String) {
+    product(channel: $channel , slug: $slug) {
       name
       thumbnail {
         url
